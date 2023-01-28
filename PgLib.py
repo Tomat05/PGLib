@@ -5,6 +5,8 @@ screen = None
 clock = pygame.time.Clock()
 dt = 0
 
+shouldQuit = False
+
 KEYS = {
     "BACKSPACE"    : pygame.K_BACKSPACE,
     "TAB"          : pygame.K_TAB,
@@ -167,4 +169,10 @@ class vector:
 # Tools
 # ===================================================================
 def random(min = 0, max = 1):
-    return (rndm.random() * (max - min)) + min 
+    return (rndm.random() * (max - min)) + min
+
+def quit(probe=False):
+    global shouldQuit
+    if probe:
+        return shouldQuit
+    shouldQuit = True
