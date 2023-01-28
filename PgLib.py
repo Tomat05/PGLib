@@ -4,7 +4,6 @@ import random as rndm
 screen = None
 clock = pygame.time.Clock()
 dt = 0
-fr = int(-1)
 
 KEYS = {
     "BACKSPACE"    : pygame.K_BACKSPACE,
@@ -126,22 +125,20 @@ def createWindow(width, height):
 #     fr = rate
 #     return clock.get_fps()
 
-def setDeltaTime():
-    global clock
-    global dt
-    dt = clock.tick(fr) / 1000
-
-def deltaTime():
-    return dt
+def deltaTime(set=False):
+    global clock, dt
+    if not set:
+        return dt
+    dt = clock.tick() / 1000
 # ===================================================================
 # COLOUR
 # ===================================================================
 def background(r, g, b):
     screen.fill((r, g, b))
 
-# Easier to understand than just using a random tuple as with regular pygame functions
-def colour(red, green, blue, opacity=255):
-    return (red, green, blue, opacity)
+# Easier to understand than just using a random tuple as in regular pygame functions
+def colour(red, green, blue, alpha=255):
+    return (red, green, blue, alpha)
 # ===================================================================
 # PRIMATIVES
 # ===================================================================
