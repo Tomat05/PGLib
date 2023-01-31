@@ -119,6 +119,9 @@ KEYS = {
 def createWindow(width, height):
     global screen
     screen = pygame.display.set_mode((width, height))
+
+def title(content):
+    pygame.display.set_caption(content)
 # ===================================================================
 # FRAMERATE && DELTATIME
 # ===================================================================
@@ -135,8 +138,8 @@ def deltaTime(set=False):
 # ===================================================================
 # COLOUR
 # ===================================================================
-def background(r, g, b):
-    screen.fill((r, g, b))
+def background(red, green, blue):
+    screen.fill((red, green, blue))
 
 # Easier to understand than just using a random tuple as in regular pygame functions
 def colour(red, green, blue, alpha=255):
@@ -144,11 +147,11 @@ def colour(red, green, blue, alpha=255):
 # ===================================================================
 # PRIMATIVES
 # ===================================================================
-def circle(centreX, centreY, radius, fill):
-    pygame.draw.circle(screen, fill, (centreX, centreY), radius)
+def circle(position, radius, fill):
+    pygame.draw.circle(screen, fill, (position.x, position.y), radius)
 
-def rect(leftX, leftY, width, height, fill):
-    pygame.draw.rect(screen, fill, (leftX, leftY, width, height))
+def rect(position, width, height, fill):
+    pygame.draw.rect(screen, fill, (position.x, position.y, width, height))
 # ===================================================================
 # INPUT
 # ===================================================================
@@ -176,3 +179,14 @@ def quit(probe=False):
     if probe:
         return shouldQuit
     shouldQuit = True
+# ===================================================================
+# Text
+# ===================================================================
+def text(position, content="Text", size=32, fill=colour(255, 255, 255), highlight=colour(0, 0, 0)):
+    global screen
+
+    fontObj = pygame.font.Font('freesansbold.ttf', size)
+    textObj = fontObj.render(content, True, fill, highlight)
+    textRect = textObj.get_rect()
+    textRect.center = (position.x, position.y)
+    screen.blit(textObj, textRect)

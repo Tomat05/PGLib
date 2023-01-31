@@ -1,9 +1,12 @@
 from PgLib import *
 
+WIDTH, HEIGHT = 1280, 720
+
 # Called once at the start
 def setup():
-    # Your code goes here
+    createWindow(WIDTH, HEIGHT)
+    title("Your Title Here")
 
 # Called every frame
 def update():
-    # Your code goes here
+    background(0, 0, 0)
