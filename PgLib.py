@@ -155,7 +155,7 @@ def rect(position, width, height, fill):
 # ===================================================================
 # INPUT
 # ===================================================================
-def getKey(key):
+def keyDown(key):
     return pygame.key.get_pressed()[KEYS[key]]
 # ===================================================================
 # VECTORS AND THINGS
