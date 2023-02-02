@@ -18,7 +18,7 @@ KEYS = {
     "SPACE"        : pygame.K_SPACE,
     "HASHTAG"      : pygame.K_HASH,
     "QUOTE"        : pygame.K_QUOTE,
-    "LEhttps://github.com/Tomat05/PGLib1"            : pygame.K_1,
+    "1"            : pygame.K_1,
     "2"            : pygame.K_2,
     "3"            : pygame.K_3,
     "4"            : pygame.K_4,
