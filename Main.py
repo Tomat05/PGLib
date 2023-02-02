@@ -9,7 +9,7 @@ if __name__ == '__main__':
         shouldQuit = Project.quit(True)
 
         for event in pygame.event.get():
-            if event.type == pygame.QUIT: 
+            if event.type == pygame.QUIT or Project.keyDown("ESCAPE"): 
                 shouldQuit = True
         
         Project.update()
