@@ -1,5 +1,6 @@
 import pygame
 import random as rndm
+from math import floor
 
 screen = None
 clock = pygame.time.Clock()
@@ -142,10 +143,10 @@ def colour(red, green, blue, alpha=255):
 # Sprite Stuff
 # ===================================================================
 def circle(position, radius, fill):
-    pygame.draw.circle(screen, fill, (position.x, position.y), radius)
+    pygame.draw.circle(screen, fill, (floor(position.x), floor(position.y)), radius)
 
 def rect(position, width, height, fill):
-    pygame.draw.rect(screen, fill, (position.x, position.y, width, height))
+    pygame.draw.rect(screen, fill, (floor(position.x), floor(position.y), width, height))
 # ===================================================================
 # INPUT
 # ===================================================================
