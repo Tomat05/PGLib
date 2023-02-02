@@ -4,7 +4,7 @@ WIDTH, HEIGHT = 1280, 720
 
 # Called once at the start
 def setup():
-    createWindow(WIDTH, HEIGHT)
+    createWindow(WIDTH, HEIGHT, False)
     title("Your Title Here")
 
 # Called every frame

@@ -5,6 +5,8 @@ screen = None
 clock = pygame.time.Clock()
 dt = 0
 
+spriteGroup = pygame.sprite.Group()
+
 shouldQuit = False
 
 KEYS = {
@@ -15,13 +17,7 @@ KEYS = {
     "SPACE"        : pygame.K_SPACE,
     "HASHTAG"      : pygame.K_HASH,
     "QUOTE"        : pygame.K_QUOTE,
-    "LEFTPAREN"    : pygame.K_LEFTPAREN,
-    "RIGHTPAREN"   : pygame.K_RIGHTPAREN,
-    "COMMA"        : pygame.K_COMMA,
-    "PERIOD"       : pygame.K_PERIOD,
-    "SLASH"        : pygame.K_SLASH,
-    "0"            : pygame.K_0,
-    "1"            : pygame.K_1,
+    "LEhttps://github.com/Tomat05/PGLib1"            : pygame.K_1,
     "2"            : pygame.K_2,
     "3"            : pygame.K_3,
     "4"            : pygame.K_4,
@@ -116,20 +112,18 @@ KEYS = {
 
 # SETUP
 # ===================================================================
-def createWindow(width, height):
+def createWindow(width=1280, height=720, fullscreen=False):
     global screen
-    screen = pygame.display.set_mode((width, height))
+    if fullscreen:
+        screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+    else:
+        screen = pygame.display.set_mode((width, height))
 
 def title(content):
     pygame.display.set_caption(content)
 # ===================================================================
-# FRAMERATE && DELTATIME
+# DELTATIME
 # ===================================================================
-# def frameRate(rate=fr):
-#     global fr
-#     fr = rate
-#     return clock.get_fps()
-
 def deltaTime(set=False):
     global clock, dt
     if not set:
@@ -145,7 +139,7 @@ def background(red, green, blue):
 def colour(red, green, blue, alpha=255):
     return (red, green, blue, alpha)
 # ===================================================================
-# PRIMATIVES
+# Sprite Stuff
 # ===================================================================
 def circle(position, radius, fill):
     pygame.draw.circle(screen, fill, (position.x, position.y), radius)
